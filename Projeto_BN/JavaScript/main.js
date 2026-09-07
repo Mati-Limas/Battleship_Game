@@ -11,7 +11,7 @@ function validateForm() {
     const difficulty = document.getElementById('difficulty').value;
     
     if (playerName === '') {
-        alert('Por favor, insira o nome do jogador.');
+        alert('Please, enter your name.');
         document.getElementById('player').focus();
         return false;
     }

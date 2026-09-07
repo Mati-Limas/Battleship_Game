@@ -3,10 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style.css">
     <title>Batalha Naval</title>
+    
 </head>
 <body>
-    <div id="player-container"></div>
+    <div id="grid"></div>z
+
+    <div class="main-game">
+        <div id="player-container">
+            <div class="hud hud-left">
+                <span id="player-name"></span>
+                <span id="player-difficulty"></span>
+            </div>
+            <div class="hud hud-right">
+                <span id="player-lives"></span>
+                <span id="player-points"></span>
+            </div>
+        </div>
+    </div>
 
     <script src="JavaScript/game.js"></script>
 </body>
