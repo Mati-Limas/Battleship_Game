@@ -2,6 +2,7 @@ const dados = JSON.parse(localStorage.getItem('playerData'));
 if (!dados) {
     window.location.href = 'main.html';
 }
+else{
 
 const config = {
     easy: { lives: 15, gridSize: 5, shipSize: [3, 2, 1, 1] },
@@ -104,18 +105,42 @@ function reveal(row, col, cell) {
             }
             points += 50;
             shipsSunk++;
+            updateHud()
             if (shipsSunk === ships) {
+                saveResults()
                 alert(`Congratulations ${dados.player}! You have sunk all the ships and scored ${points} points!`);
-                window.location.href = 'main.html';
+                window.location.href = 'leaderboard.html';
             }
     
     }
         else{
             cell.classList.add('miss');
             lives--;
+            updateHud()
             if (lives === 0) {
+                saveResults()
                 alert('Game Over! You have no lives left.');
-                window.location.href = 'main.html';
+                window.location.href = 'leaderboard.html';
             }
         }
 }
+
+function updateHud() {
+    document.getElementById('player-lives').textContent = lives + '/' + settings.lives;
+    document.getElementById('player-points').textContent = 'points:' + points;
+}
+
+function saveResults() {
+    const lb = JSON.parse(localStorage.getItem('leaderboard')) || [];
+
+    lb.push({
+        name: dados.player,
+        points: points,
+        difficulty: dados.difficulty
+    });
+
+    lb.sort((a, b) => b.points - a.points);
+    lb.splice(10);
+
+    localStorage.setItem('leaderboard', JSON.stringify(lb));
+}}
