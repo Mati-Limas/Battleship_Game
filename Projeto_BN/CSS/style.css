@@ -202,3 +202,27 @@ thead{
 tbody{
     font-size: 15px;
 }
+
+.container-btn{
+    display: flex;
+    justify-content: center; 
+    width: 100%;
+}
+
+.btn-return{
+    background: linear-gradient(90deg, var(--light-border-color) 0%, var(--txt-color) 100%);
+    color: var(--white-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+    font-family: var(--font2-family);
+
+}
+
+.btn-return:hover{
+    opacity: 0.9;
+    background: linear-gradient(90deg, rgb(3, 106, 165) 0%, #2d5593 100%);
+}

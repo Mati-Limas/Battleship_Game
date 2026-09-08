@@ -14,3 +14,10 @@ leaderboard.forEach(result => {
     <td>${result.difficulty}</td>`;
     t_lb.appendChild(row);
 })}
+
+
+const button = document.querySelector('.btn-return');
+
+button.addEventListener('click', function() {
+    window.location.href = 'main.html'
+})
